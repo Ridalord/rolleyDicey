@@ -165,9 +165,9 @@ i {
     transition: margin 0.3s;
 }
 
-.btn-new {top: 20px;}
-.btn-roll {top: 643px;}
-.btn-hold {top: 700px;}
+.btn-new {top: 3vh;}
+.btn-roll {top: 62vh;}
+.btn-hold {top: 68vh;}
 
 .winningScore {
     position: absolute;
