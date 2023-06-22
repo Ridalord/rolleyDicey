@@ -60,6 +60,7 @@ body {
     position: absolute;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 300;
+    font-size: small;
     padding: 3px 0;
     text-align: center;
     left: 50%;
@@ -167,18 +168,18 @@ i {
 
 .btn-new {top: 3vh;}
 .btn-roll {top: 62vh;}
-.btn-hold {top: 68vh;}
+.btn-hold {top: 67vh;}
 
 .winningScore {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 170px;
-    top: 770px;
+    width: 85px;
+    top: 71vh;
     color: #555;
     text-align: center;
-    font-size: 1.5em;
-    padding: 8px;
+    font-size: 12px;
+    padding: 5px;
     border: none;
     border-radius: 4px;
 }
