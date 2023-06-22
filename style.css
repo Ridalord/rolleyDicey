@@ -211,16 +211,16 @@ i {
 /*****************************************
 ****TABLET
 *****************************************/
-/* @media screen and (max-width: 980px) {
+@media screen and (min-width: 980px) {
     
-} */
+}
 
 
 
 /*****************************************
 ****MOBILE
 *****************************************/
-/*@media screen and (max-width: 680px) {
+/* @media screen and (max-width: 680px) {
     body {
         height: 100vh;
     }
@@ -293,5 +293,4 @@ i {
         padding: 2px;
         border-radius: 2px;
     }
-}
-*/
+} */
