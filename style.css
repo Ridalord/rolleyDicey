@@ -74,7 +74,7 @@ body {
 *****************************************/
 
 .player-name {
-    font-size: 50px;
+    font-size: 20px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -86,7 +86,7 @@ body {
 
 .player-score {
     text-align: center;
-    font-size: 6em;
+    font-size: 5em;
     font-weight: 100;
     color: #fefefe;
     margin-bottom: 350px;
@@ -102,11 +102,11 @@ body {
 
 .active .player-name::after {
     content: '\2022';
-    font-size: 47px;
+    font-size: 30px;
     position: absolute;
     color: #77ac4b;
-    top: 3px;
-    right: 0px;
+    top: -3px;
+    right: -8px;
 
 }
 
@@ -140,7 +140,7 @@ button {
     background: none;
     border: none;
     font-family: 'BankGothic Lt BT', sans-serif;
-    font-size: 1.5em;
+    font-size: 1em;
     text-transform: uppercase;
     cursor: pointer;
     font-weight: 300;
@@ -158,14 +158,14 @@ i {
     color: rgb(255, 253, 253);
     display: inline-block;
     margin-right: 10px;
-    font-size: 32px;
+    font-size: 20px;
     line-height: 1;
     vertical-align: text-top;
-    margin-top: -5px;
+    margin-top: -2px;
     transition: margin 0.3s;
 }
 
-.btn-new {top: 45px;}
+.btn-new {top: 20px;}
 .btn-roll {top: 643px;}
 .btn-hold {top: 700px;}
 
