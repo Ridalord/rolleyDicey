@@ -124,6 +124,8 @@ function init() {
     document.querySelector(".player-0-panel").classList.add("active");
 };
 function nextPlayer() {
+    document.querySelector(".btn-hold").style.display = "block"
+    document.querySelector('.btn-roll').style.display = "block"
     if (activePlayer === 0) {
         activePlayer = 1 
         showPopup('Player 2 Turn', 2)
@@ -139,7 +141,6 @@ function nextPlayer() {
     document.querySelector(".player-1-panel").classList.toggle('active');
 
     document.querySelector(".dice").style.display = "none";
-    // console.log("invoked")
 };
 function computerPlay() {
     activePlayer = 1;
@@ -151,13 +152,16 @@ function computerPlay() {
     document.querySelector(".player-1-panel").classList.toggle("active");
 
     document.querySelector(".dice").style.display = "none";
-
+    document.querySelector(".btn-hold").style.display = "none"
+    document.querySelector('.btn-roll').style.display = "none"
+    // document.querySelector('.btn-hold').disabled = true
     var hold = Math.floor(Math.random() * 10) + 1;
     var rollCount = 0; // Counter for the number of dice rolls
 
     var rollInterval = setInterval(function () {
         if (rollCount >= hold) {
             clearInterval(rollInterval);
+            enableButtons(); // Enable roll and hold buttons
             score[activePlayer] += roundScore;
             document.querySelector("#score-" + activePlayer).textContent =
                 score[activePlayer];
@@ -172,8 +176,12 @@ function computerPlay() {
                 document.querySelector("#name-" + activePlayer).textContent =
                     "Winner!";
                 document.querySelector(".dice").style.display = "none";
-                document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
-                document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+                document
+                    .querySelector(".player-" + activePlayer + "-panel")
+                    .classList.add("winner");
+                document
+                    .querySelector(".player-" + activePlayer + "-panel")
+                    .classList.remove("active");
                 gamePlaying = false;
             } else {
                 setTimeout(function () {
@@ -211,6 +219,10 @@ function computerPlay() {
     }, 1000);
 }
 
+function disableButtons() {
+    showPopup('Its not your turn', 2)
+    console.log("its not your turn")
+}
 
 const popup = document.getElementById('signPopup');
 const popupText = document.getElementById('popup-text');
