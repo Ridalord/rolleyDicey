@@ -280,6 +280,10 @@ i {
 ****LAPTOP
 *****************************************/
 @media screen and (min-width: 990px) {
+    .gameName {
+        top: -40px;
+        font-size: 60px;
+    }
     .wrapper {
         max-width: 800px;
     }
