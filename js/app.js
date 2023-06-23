@@ -30,9 +30,11 @@ computerBtn.addEventListener("click", () => {
     wrapper.style.display = 'block'
     document.getElementById("name-1").textContent = "Computer"
     
-    showPopup("You Challenged Computer", 4)
+    showPopup("You Challenged Computer", 2)
 
-    // showPopup("Player 1 Turn", 16)
+    setTimeout(() => {
+        showPopup("Player 1 Turn", 1);
+    }, 3000);
 })
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
@@ -43,6 +45,7 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
         diceDOM.src = "img/dice-" + dice + ".png";
 
         if (lastDice === 6 && dice === 6) {
+            showPopup(`Player ${activePlayer} rolled double 6`, 2)
             score[activePlayer] = 0;
             document.querySelector("#score-" + activePlayer).textContent = score[activePlayer];
         }
@@ -51,6 +54,7 @@ document.querySelector(".btn-roll").addEventListener("click", function () {
             document.querySelector("#current-" + activePlayer).textContent = roundScore;
         }
         else {
+            showPopup(`Player ${activePlayer + 1} rolled a 1`, 2)
             if (friendly) {
                 nextPlayer();
             } else {
@@ -138,55 +142,75 @@ function nextPlayer() {
     // console.log("invoked")
 };
 function computerPlay() {
-    activePlayer = 1
-    roundScore = 0
+    activePlayer = 1;
+    roundScore = 0;
     document.getElementById("current-0").textContent = "0";
     document.getElementById("current-1").textContent = "0";
 
-    document.querySelector(".player-0-panel").classList.toggle('active');
-    document.querySelector(".player-1-panel").classList.toggle('active');
+    document.querySelector(".player-0-panel").classList.toggle("active");
+    document.querySelector(".player-1-panel").classList.toggle("active");
 
     document.querySelector(".dice").style.display = "none";
+
     var hold = Math.floor(Math.random() * 10) + 1;
-    console.log(hold)
-    for (i = 0; i < hold; i++){
-        var dice = Math.floor(Math.random() * 6) + 1;
-        console.log(dice)
-        diceDOM = document.querySelector(".dice");
-        diceDOM.src = "img/dice-" + dice + ".png";
+    var rollCount = 0; // Counter for the number of dice rolls
 
-        if (lastDice === 6 && dice === 6) {
-            score[activePlayer] = 0;
-            document.querySelector("#score-" + activePlayer).textContent = score[activePlayer];
-        }
-        if (dice !== 1) {
-            roundScore += dice;
-            document.querySelector("#current-" + activePlayer).textContent = roundScore;
-            lastDice = dice;
+    var rollInterval = setInterval(function () {
+        if (rollCount >= hold) {
+            clearInterval(rollInterval);
+            score[activePlayer] += roundScore;
+            document.querySelector("#score-" + activePlayer).textContent =
+                score[activePlayer];
+            var winningScore = document.querySelector(".winningScore").value;
+
+            if (winningScore) {
+                var input = winningScore;
+            } else {
+                input = 100;
+            }
+            if (score[activePlayer] >= input) {
+                document.querySelector("#name-" + activePlayer).textContent =
+                    "Winner!";
+                document.querySelector(".dice").style.display = "none";
+                document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
+                document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
+                gamePlaying = false;
+            } else {
+                setTimeout(function () {
+                    nextPlayer();
+                }, 3000);
+            }
         } else {
-            roundScore = 0
-            break;
-        }
-    }
-    score[activePlayer] += roundScore;
-    document.querySelector("#score-" + activePlayer).textContent = score[activePlayer];
-    var winningScore = document.querySelector(".winningScore").value;
+            var dice = Math.floor(Math.random() * 6) + 1;
+            diceDOM = document.querySelector(".dice");
+            diceDOM.style.display = "block";
+            diceDOM.src = "img/dice-" + dice + ".png";
 
-    if (winningScore) {
-        var input = winningScore;
-    }
-    else {
-        input = 100;
-    }
-    if (score[activePlayer] >= input) {
-        document.querySelector("#name-" + activePlayer).textContent = "Winner!"
-        document.querySelector(".dice").style.display = "none";
-        document.querySelector(".player-" + activePlayer + "-panel").classList.add("winner");
-        document.querySelector(".player-" + activePlayer + "-panel").classList.remove("active");
-        gamePlaying = false;
-    }
-    nextPlayer();
+            if (lastDice === 6 && dice === 6) {
+                score[activePlayer] = 0;
+                document.querySelector("#score-" + activePlayer).textContent =
+                    score[activePlayer];
+                showPopup("Computer rolled double 6", 2);
+            }
+            if (dice !== 1) {
+                roundScore += dice;
+                document.querySelector("#current-" + activePlayer).textContent =
+                    roundScore;
+                lastDice = dice;
+            } else {
+                showPopup("Computer rolled a 1", 2);
+                roundScore = 0;
+                clearInterval(rollInterval);
+                setTimeout(function () {
+                    nextPlayer();
+                }, 3000);
+            }
+
+            rollCount++;
+        }
+    }, 1000);
 }
+
 
 const popup = document.getElementById('signPopup');
 const popupText = document.getElementById('popup-text');

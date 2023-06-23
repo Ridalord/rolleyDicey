@@ -273,17 +273,17 @@ i {
 
 #signPopup {
     position: fixed;
-    top: 30px;
+    top: 50px;
     left: 50%;
     transform: translateX(-50%);
     background: none;
-    padding: 5px;
+    /* padding: 5px; */
     font-size: 1.5em;
     text-align: center;
     color: #77ac4b;
     /* background-color: green; */
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    /* border-radius: 5px; */
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
     animation: popup-fade-in 0.5s ease-in-out;
     z-index: 1000;
     margin: auto;
@@ -397,6 +397,9 @@ i {
     }
     .player-score {
         font-size: 6em;
+    }
+    .btn-hold, .btn-new, .btn-roll {
+        font-size: 1.5em;
     }
     .btn-roll {
         top: 380px;
