@@ -26,6 +26,10 @@ body {
     color: rgb(255, 253, 253);
 }
 
+.d-none {
+    display: none;
+}
+
 .gameName {
     position: absolute;
     width: 100%;
@@ -265,6 +269,36 @@ i {
 
 .winner .player-current-box {
     display: none;
+}
+
+#signPopup {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    padding: 5px;
+    font-size: 1.5em;
+    text-align: center;
+    color: #77ac4b;
+    /* background-color: green; */
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    animation: popup-fade-in 0.5s ease-in-out;
+    z-index: 1000;
+    margin: auto;
+}
+
+@keyframes popup-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(50%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 

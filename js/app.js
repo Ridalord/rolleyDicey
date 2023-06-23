@@ -29,9 +29,10 @@ computerBtn.addEventListener("click", () => {
     instructions.style.display = 'none'
     wrapper.style.display = 'block'
     document.getElementById("name-1").textContent = "Computer"
-    if (computer) {
-        console.log("You Challenged Computer")
-    }
+    
+    showPopup("You Challenged Computer", 4)
+
+    // showPopup("Player 1 Turn", 16)
 })
 
 document.querySelector(".btn-roll").addEventListener("click", function () {
@@ -119,7 +120,13 @@ function init() {
     document.querySelector(".player-0-panel").classList.add("active");
 };
 function nextPlayer() {
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+    if (activePlayer === 0) {
+        activePlayer = 1 
+        showPopup('Player 2 Turn', 2)
+    } else {
+        activePlayer = 0;
+        showPopup('Player 1 Turn', 2)
+    } 
     roundScore = 0;
     document.getElementById("current-0").textContent = "0";
     document.getElementById("current-1").textContent = "0";
@@ -128,7 +135,7 @@ function nextPlayer() {
     document.querySelector(".player-1-panel").classList.toggle('active');
 
     document.querySelector(".dice").style.display = "none";
-    console.log("invoked")
+    // console.log("invoked")
 };
 function computerPlay() {
     activePlayer = 1
@@ -179,4 +186,14 @@ function computerPlay() {
         gamePlaying = false;
     }
     nextPlayer();
+}
+
+const popup = document.getElementById('signPopup');
+const popupText = document.getElementById('popup-text');
+function showPopup(message, t) {
+    popupText.innerText = message;
+    popup.classList.remove('d-none');
+    setTimeout(() => {
+        popup.classList.add('d-none');
+    }, t * 1000);
 }
