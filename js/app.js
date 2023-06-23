@@ -161,7 +161,6 @@ function computerPlay() {
     var rollInterval = setInterval(function () {
         if (rollCount >= hold) {
             clearInterval(rollInterval);
-            enableButtons(); // Enable roll and hold buttons
             score[activePlayer] += roundScore;
             document.querySelector("#score-" + activePlayer).textContent =
                 score[activePlayer];
