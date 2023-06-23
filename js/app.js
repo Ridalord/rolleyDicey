@@ -107,6 +107,8 @@ function init() {
     friendly ? computer = false : computer = true;
     wrapper.style.display = 'none'
     instructions.style.display = 'block'
+    document.querySelector(".btn-hold").style.display = "block"
+    document.querySelector('.btn-roll').style.display = "block"
     document.querySelector(".dice").style.display = "none";
     document.getElementById("score-0").textContent = "0";
     document.getElementById("score-1").textContent = "0";
@@ -154,7 +156,6 @@ function computerPlay() {
     document.querySelector(".dice").style.display = "none";
     document.querySelector(".btn-hold").style.display = "none"
     document.querySelector('.btn-roll').style.display = "none"
-    // document.querySelector('.btn-hold').disabled = true
     var hold = Math.floor(Math.random() * 10) + 1;
     var rollCount = 0; // Counter for the number of dice rolls
 
