@@ -71,6 +71,53 @@ body {
     bottom: 0;
 }
 
+.instructions {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* align-content: center; */
+    /* z-index: 1000000; */
+    background-color: #0808089e;
+}
+
+.wrap {
+    align-self: center;
+    justify-self: center;
+    width: 90%;
+    text-align: center;
+}
+
+.wrap h1 {
+    color: #77ac4b;
+    font-size: 1.8em;
+}
+
+h3 {
+    color: #77ac4b;
+}
+
+.btn-challenge {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.challenge button {
+    position: relative !important;
+    margin-right: 15px;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #77ac4b;
+    font-family: 'BankGothic Lt BT', sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+}
+
 
 
 /*****************************************
@@ -136,7 +183,10 @@ body {
     font-size: 2.5em;
 }
 
-button {
+.btn-new,
+.btn-hold,
+.btn-roll
+ {
     position: absolute;
     width: fit-content;
     left: 50%;
