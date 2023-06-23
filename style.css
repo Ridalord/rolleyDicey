@@ -216,8 +216,57 @@ i {
 /*****************************************
 ****TABLET
 *****************************************/
-@media screen and (min-width: 980px) {
-    
+@media screen and (min-width: 760px) {
+    .wrapper {
+        max-width: 900px;
+    }
+    .dice {
+        height: 150px;
+        top: 200px;
+    }
+    .winningScore {
+        font-size: 20px;
+        width: 145px;
+        margin-top: 80px;
+    }
+    .player-current-box {
+        margin-top: 300px;
+        padding: 10px;
+    }
+    .player-current-label{
+        font-size: 1.2em;
+    }
+    .player-current-score {
+        font-size: 3.5em;
+    }
+    .btn-roll {
+        top: 420px;
+    }
+
+    .btn-hold {
+        top: 460px;
+    }
+
+    button {
+        font-size: 1.5em;
+    }
+
+    i {
+        font-size: 25px;
+    }
+
+    .player-score {
+        font-size: 5em;
+    }
+
+    .player-name {
+        font-size: 30px;
+    }
+
+    .active .player-name::after {
+        right: auto;
+        top: 0;        
+    }
 }
 
 
